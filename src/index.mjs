@@ -2,7 +2,7 @@ import './styles.css';
 
 let invoice_number = 653;
 
-document.getElementById('invoice_number').innerHTML = invoice_number;
+document.getElementById('invoice_number').innerHTML = String(invoice_number);
 
 let invoice_total = 60;
 
@@ -10,8 +10,8 @@ document.getElementById('invoice_total').innerHTML = `$${invoice_total}.00`;
 
 const payment_details_obj = {
   key: 'value',
-  key: 'value',
-  key: 'value',
+  key2: 'value',
+  key3: 'value',
 };
 
 let payment_details = '';
