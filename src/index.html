@@ -7,6 +7,7 @@
 </head>
 
 <body>
+	<form action="#">
 	<main>
 		<aside>
 			<h1>Invoice</h1>
@@ -21,7 +22,15 @@
 				<h1>TRUTH DOMAINS</h1>
 				<div id="meta">
 					<p>Invoice Number: <span id="invoice_number">001</span></p>
-					<p id="date">21 Oct 2003</p>
+					<label><strong>Status</strong>
+						<select id="status">
+							<option value="draft">Draft</option>
+							<option value="sent">Sent</option>
+							<option value="paid">Paid</option>
+							<option value="unpaid">Bad Debt</option>
+						</select>
+					</label>
+					<p id="date"><time>25 Oct 2023</time></p>
 				</div>
 			</header>
 			<section>
@@ -55,14 +64,13 @@
 			</section>
 		</article>
 	</main>
-	
 	<div id="controls">
-		<ul>
-			<li>Save Invoice</li>
-			<li>Generate PDF</li>
-		</ul>
+		<fieldset>
+			<button id="make_pdf">Generate PDF</button>
+		</fieldset>
 	</div>
 
+	</form>
 	<script src="./index.mjs" type="module"></script>
 </body>
 
