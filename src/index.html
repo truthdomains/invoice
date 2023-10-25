@@ -4,6 +4,7 @@
 <head>
 	<title>TRUTH DOMAINS | Invoicing</title>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
@@ -24,10 +25,10 @@
 					<p>Invoice Number: <span id="invoice_number">001</span></p>
 					<label><strong>Status</strong>
 						<select id="status">
-							<option value="draft">Draft</option>
+							<option value="draft" selected>Draft</option>
 							<option value="sent">Sent</option>
 							<option value="paid">Paid</option>
-							<option value="unpaid">Bad Debt</option>
+							<option value="unpaid">Lost</option>
 						</select>
 					</label>
 					<p id="date"><time>25 Oct 2023</time></p>
@@ -63,6 +64,9 @@
 				</table>
 			</section>
 		</article>
+		<div id="effects">
+			<div id="effect_status">Draft</div>
+		</div>
 	</main>
 	<div id="controls">
 		<fieldset>

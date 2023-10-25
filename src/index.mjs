@@ -1,5 +1,3 @@
-import './styles.css';
-
 let invoice_number = 654;
 
 document.getElementById('invoice_number').innerHTML = String(invoice_number);
@@ -34,3 +32,12 @@ document.getElementById('invoice_items').innerHTML = `
   <td>$30</td>
   </tr>
 `;
+
+/* Status */
+const $input_status = document.getElementById('status');
+const $effect_status = document.getElementById('effect_status');
+
+$input_status.addEventListener('change', (event) => {
+  $effect_status.innerText = event.target.value;
+  $effect_status.className = event.target.value;
+});

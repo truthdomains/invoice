@@ -15,6 +15,7 @@ body {
 
 main {
 	display: flex;
+	position: relative;
 	margin: 2em;
 }
 
@@ -174,6 +175,48 @@ label::after {
 #status {
 	width: 4.5em;
 	padding: 0 1em;
+}
+
+#effect_status {
+	display: inline-block;
+	position: absolute;
+	bottom: .5em;
+	right: 3em;
+	border: 0.25rem solid #555;
+	padding: 0.25rem 1rem;
+	border-radius: 1rem;
+	color: #555;
+	font-size: 3rem;
+	font-weight: 700;
+	font-family: 'Courier', monospace;
+	text-transform: uppercase;
+	transform: rotate(12deg);
+	-webkit-mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png);
+	-webkit-mask-size: 944px 604px;
+	mix-blend-mode: multiply;
+
+	&.sent {
+		opacity: .4;
+		transform: rotate(-5deg);
+		font-size: 4rem;
+		font-family: "Open sans", Helvetica, Arial, sans-serif;
+		border-radius: 0;
+		padding: .5rem;
+	}
+	&.unpaid {
+		right: 4em;
+		bottom: 1.5em;
+		border: .5rem double #D23;
+		color: #D23;
+		transform: rotate(3deg);
+		font-size: 2rem;
+	}
+	&.paid {
+		border: .5rem solid #0A9928;
+		color: #0A9928;
+		transform: rotate(-14deg);
+		border-radius: 0;
+	}
 }
 
 @media print {
