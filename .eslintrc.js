@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
     'env': {
         'browser': true,
@@ -224,11 +225,6 @@ module.exports = {
             'last'
         ],
         'sort-imports': 'error',
-        'sort-keys': [
-            'error',
-            'asc'
-        ],
-        'sort-vars': 'error',
         'space-before-blocks': 'error',
         'space-before-function-paren': 'error',
         'space-in-parens': [
