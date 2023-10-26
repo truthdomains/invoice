@@ -25,7 +25,6 @@ module.exports = {
         'block-spacing': 'error',
         'brace-style': 'error',
         'camelcase': 'off',
-        'capitalized-comments': 'error',
         'class-methods-use-this': 'error',
         'comma-dangle': 'off',
         'comma-spacing': [
@@ -74,7 +73,6 @@ module.exports = {
                 'before': true
             }
         ],
-        'line-comment-position': 'error',
         'linebreak-style': [
             'error',
             'unix'
@@ -83,7 +81,6 @@ module.exports = {
         'lines-between-class-members': 'error',
         'max-classes-per-file': 'error',
         'max-depth': 'error',
-        'max-len': 'error',
         'max-lines': 'error',
         'max-lines-per-function': 'error',
         'max-nested-callbacks': 'error',
@@ -118,7 +115,6 @@ module.exports = {
         'no-implicit-coercion': 'error',
         'no-implicit-globals': 'error',
         'no-implied-eval': 'error',
-        'no-inline-comments': 'error',
         'no-invalid-this': 'error',
         'no-iterator': 'error',
         'no-label-var': 'error',
@@ -178,7 +174,6 @@ module.exports = {
         'no-useless-rename': 'error',
         'no-useless-return': 'error',
         'no-var': 'error',
-        'no-void': 'error',
         'no-warning-comments': 'error',
         'no-whitespace-before-property': 'error',
         'nonblock-statement-body-position': 'error',

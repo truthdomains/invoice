@@ -195,31 +195,46 @@ label::after {
 	-webkit-mask-size: 944px 604px;
 	mix-blend-mode: multiply;
 
+	&[class] {
+		animation: .5s ease-in stamp;
+	}
 	&.sent {
-		opacity: .4;
 		transform: rotate(-5deg);
-		font-size: 4rem;
-		font-family: "Open sans", Helvetica, Arial, sans-serif;
-		border-radius: 0;
 		padding: .5rem;
+		border-radius: 0;
+		font-size: 3rem;
+		font-family: "Open sans", Helvetica, Arial, sans-serif;
+		border-color: var(--color-secondary);
+		color: var(--color-secondary);
+	}
+	&.paid {
+		transform: rotate(-14deg);
+		border: .5rem solid #0A9928;
+		border-radius: 0;
+		color: #0A9928;
 	}
 	&.unpaid {
+		transform: rotate(3deg);
 		right: 4em;
 		bottom: 1.5em;
 		border: .5rem double #D23;
-		color: #D23;
-		transform: rotate(3deg);
 		font-size: 2rem;
+		color: #D23;
 	}
-	&.paid {
-		border: .5rem solid #0A9928;
-		color: #0A9928;
-		transform: rotate(-14deg);
-		border-radius: 0;
+}
+
+@keyframes stamp {
+	from {
+		opacity: 0.1;
+		transform: rotate(-5deg) scale(4);
+	}
+	to {
+		opacity: 1;
 	}
 }
 
 @media print {
+	#effects,
 	#status,
 	#controls {
 		display: none;
