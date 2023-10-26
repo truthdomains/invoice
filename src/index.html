@@ -4,9 +4,12 @@
 <head>
 	<title>TRUTH DOMAINS | Invoicing</title>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./styles.css">
+	<link rel="prefetch" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png">
 </head>
 
 <body>
+	<form action="#">
 	<main>
 		<aside>
 			<h1>Invoice</h1>
@@ -21,6 +24,14 @@
 				<h1>TRUTH DOMAINS</h1>
 				<div id="meta">
 					<p>Invoice Number: <span id="invoice_number">001</span></p>
+					<label><strong>Status</strong>
+						<select id="status">
+							<option value="draft" selected>Draft</option>
+							<option value="sent">Sent</option>
+							<option value="paid">Paid</option>
+							<option value="unpaid">Lost</option>
+						</select>
+					</label>
 					<p id="date"><time>25 Oct 2023</time></p>
 				</div>
 			</header>
@@ -54,15 +65,17 @@
 				</table>
 			</section>
 		</article>
+		<div id="effects">
+			<div id="effect_status">Draft</div>
+		</div>
 	</main>
-	
 	<div id="controls">
-		<ul>
-			<li>Save Invoice</li>
-			<li>Generate PDF</li>
-		</ul>
+		<fieldset>
+			<button id="make_pdf">Generate PDF</button>
+		</fieldset>
 	</div>
 
+	</form>
 	<script src="./index.mjs" type="module"></script>
 </body>
 
