@@ -20,6 +20,10 @@ aside {
 	border-right: 1px solid var(--color-border);
 }
 
+header h1 input {
+	text-align: right;
+}
+
 article {
 	width: 30em;
 	padding: 2em;
@@ -72,6 +76,23 @@ input {
 }
 #date {
 	font-weight: bold;
+	text-align: right;
+
+	&::-webkit-inner-spin-button,
+	&::-webkit-calendar-picker-indicator {
+		display: none;
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	&:hover,
+	&:focus {
+		&::-webkit-inner-spin-button,
+		&::-webkit-calendar-picker-indicator {
+			display: initial;
+			-webkit-appearance: initial;
+		}
+	}
 }
 
 /* Table */
@@ -82,9 +103,31 @@ table {
 }
 th,
 td {
-	padding: 0.5em 0;
+	padding: .5em 0;
+
+	&:first-child {
+		width: 100%;
+	}
+
+	&:nth-child(2) input {
+		width: 2.5em;
+	}
+
 	&:last-child {
+		width: 6em;
 		text-align: right;
+
+		input {
+			width: 5em;
+			text-align: right;
+
+			&::-webkit-inner-spin-button,
+			&::-webkit-outer-spin-button {
+				display: none;
+				-webkit-appearance: none;
+				margin: 0;
+			}
+		}
 	}
 }
 thead {

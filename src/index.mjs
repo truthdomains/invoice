@@ -7,8 +7,12 @@ const config = {
     name: 'TRUTH DOMAINS',
     // logo: new URL('./logo.png', import.meta.url), // option to include logo
   },
+  currency: {
+    code: 'AUD',
+    symbol: '$',
+  },
   payment_details: {
-    bank_name: 'World Credit',
+    bank_name: 'WORLD CREDIT',
     bank_code: 'XWW678',
     account_number: '0000001',
   },
@@ -76,4 +80,4 @@ for (let value of Object.values(invoices[showing_invoice_pos].items)) {
 document.getElementById('invoice_items').innerHTML = invoice_items;
 
 // Invoice Total
-document.getElementById('invoice_total').innerHTML = priceFormatter(invoice_total);
+document.getElementById('invoice_total').innerHTML = `${config.currency.symbol}${priceFormatter(invoice_total)}`;

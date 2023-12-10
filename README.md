@@ -5,7 +5,7 @@
 ## Usage
 
 1. Fork and edit [`index.mjs`](./src/index.mjs) as needed
-1. If you are outside Australia and don't like the date or currency format; edit [`helpers.mjs`](./src/helpers.mjs) as needed
+1. If you are outside the modern world and don't like the date format; edit [`helpers.mjs`](./src/helpers.mjs) as needed
 
 ## Development
 
