@@ -1,6 +1,6 @@
 import './styles.css';
 
-import { dateFormatter, priceFormatter } from './helpers.mjs';
+import { dateFormatter, dateInputFormatter, priceFormatter } from './helpers.mjs';
 
 const config = {
   company: {
@@ -57,10 +57,21 @@ for (let [key, value] of Object.entries(config.payment_details)) {
 document.getElementById('payment_details').innerHTML = payment_details;
 
 // Invoice Number
-document.getElementById('invoice_number').innerHTML = String(invoices[0].number);
+document.getElementById('invoice_number').value = String(invoices[0].number);
 
 // Invoice Date
-document.getElementById('date').innerHTML = dateFormatter(invoices[0].date_created);
+const $date = document.getElementById('date');
+
+$date.addEventListener('mouseover', (e) => {
+  const stringValue = e.target.value;
+  $date.value = dateInputFormatter(stringValue);
+  $date.type = 'date';
+});
+$date.addEventListener('mouseout', (e) => {
+  $date.type = 'text';
+  $date.value = dateFormatter(e.target.value);
+  $date.blur();
+});
 
 // Invoice Items
 let invoice_items = '',
