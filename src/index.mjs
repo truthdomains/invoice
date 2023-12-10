@@ -38,16 +38,16 @@ let showing_invoice_pos = invoices.length - 1;
 
 // Company Name || Company Logo
 if (config.company.logo) {
-  document.getElementById('company_name').innerHTML = `<img src="${config.company.logo}" />`;
+  document.getElementById('company_name').parentNode.innerHTML = `<img src="${config.company.logo}" />`;
 } else {
-  document.getElementById('company_name').innerHTML = String(config.company.name);
+  document.getElementById('company_name').value = String(config.company.name);
 }
 
 // Payment Details
 let payment_details = '';
 
 for (let [key, value] of Object.entries(config.payment_details)) {
-  payment_details += `<dt>${key.replace('_', ' ')}</dt><dd>${value}</dd>`;
+  payment_details += `<dt><input value="${key.replace('_', ' ')}"></dt><dd><input value="${value}"></dd>`;
 }
 
 document.getElementById('payment_details').innerHTML = payment_details;
@@ -67,9 +67,9 @@ for (let value of Object.values(invoices[showing_invoice_pos].items)) {
 
   invoice_items += `
   <tr>
-    <td>${value.description}</td>
-    <td>${value.quantity}</td>
-    <td>${priceFormatter(value.price)}</td>
+    <td><input value="${value.description}"></td>
+    <td><input type="number" value=${value.quantity}></td>
+    <td><input type="number" value=${priceFormatter(value.price)}></td>
   </tr>`;
 }
 

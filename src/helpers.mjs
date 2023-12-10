@@ -1,9 +1,6 @@
-export const priceFormatter = (price) => {
+export const priceFormatter = (/** @type {number} */ price) => {
     price /= 100;
-    return price.toLocaleString('en-AU', {
-        style: 'currency',
-        currency: 'AUD'
-    });
+    return price;
 };
 
 export const dateFormatter = (datestring) => {

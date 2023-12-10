@@ -12,16 +12,16 @@
 			<h1>Invoice</h1>
 			<h2>Payment Details</h2>
 			<dl id="payment_details">
-				<dt>Key</dt>
-				<dd>Value</dt>
+				<dt><input value="Key" placeholder="Key"></dt>
+				<dd><input value="Value" placeholder="Value"></dt>
 			</dl>
 		</aside>
 		<article>
 			<header>
-				<h1 id="company_name">TRUTH DOMAINS</h1>
+				<h1><input id="company_name" value="TRUTH DOMAINS"></h1>
 				<div id="meta">
-					<p>Invoice Number: <span id="invoice_number">001</span></p>
-					<p><time id="date">25 Oct 2023</time></p>
+					<p>Invoice Number: <input type="number" id="invoice_number" value="001" placeholder="001"></p>
+					<p><input type="date" id="date" value="2023-12-10"></p>
 				</div>
 			</header>
 			<section>
@@ -35,14 +35,9 @@
 					</thead>
 					<tbody id="invoice_items">
 						<tr>
-							<td>Sample Item</td>
-							<td>1</td>
-							<td>$60</td>
-						</tr>
-						<tr>
-							<td>Sample Item</td>
-							<td>1</td>
-							<td>$60</td>
+							<td><input value="Sample Item" placeholder="Sample Item"></td>
+							<td><input type="number" value="1" placeholder="1"></td>
+							<td>$<input type="number" value="60" placeholder="60"></td>
 						</tr>
 					</tbody>
 					<tfoot>
