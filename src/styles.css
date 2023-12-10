@@ -1,11 +1,12 @@
 :root {
 	--color-border: lightgray;
+	--font-family: 'Helvetica Neue', sans-serif;
 }
 
 body {
 	display: flex;
 	justify-content: space-around;
-	font-family: 'Helvetica Neue', sans-serif;
+	font-family: var(--font-family);
 	font-weight: 200;
 }
 
@@ -51,6 +52,17 @@ dt {
 	margin-top: 1em;
 	font-size: 90%;
 	text-transform: lowercase;
+}
+
+input {
+	border: 0;
+	appearance: none;
+	font: var(--font-family);
+
+	&:hover {
+		outline: 1px solid var(--color-border);
+		border-radius: 0.25em;
+	}
 }
 
 #meta {
