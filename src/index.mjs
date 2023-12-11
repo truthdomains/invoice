@@ -47,24 +47,28 @@ if (config.company.logo) {
   document.getElementById('company_name').value = String(config.company.name);
 }
 
+let isShiftPressed = false;
+
+// When tabbing in reverse from the trigger/last input, we don't want the focus going to the new item
+document.addEventListener('keydown', (e) => {
+  isShiftPressed = e.shiftKey;
+});
+
 // Payment Details
 let payment_details = '';
+const $payment_details = document.getElementById('payment_details');
 
 for (let [key, value] of Object.entries(config.payment_details)) {
   payment_details += `<dt><input value="${key.replace('_', ' ')}"></dt><dd><input value="${value}"></dd>`;
 }
 
-let isShiftPressed = false;
-
-document.getElementById('payment_details').addEventListener('keydown', (e) => {
-  isShiftPressed = e.shiftKey;
-});
+$payment_details.innerHTML = payment_details;
 
 // Add a new object to the end of the items array, when tabbing out of the last input
-document.getElementById('payment_details').addEventListener('focusout', (e) => {
+$payment_details.addEventListener('focusout', (e) => {
   const $dl = e.currentTarget;
   // if the target is an input and it's the last input in the list
-  if (e.target.tagName === 'INPUT' && e.target === $dl.lastElementChild.lastElementChild) {
+  if (e.target.tagName === 'INPUT' && e.target === $dl.lastElementChild.lastElementChild && !isShiftPressed) {
     const $dt = document.createElement('dt'),
       $dd = document.createElement('dd'),
       $dti = document.createElement('input'),
@@ -76,25 +80,22 @@ document.getElementById('payment_details').addEventListener('focusout', (e) => {
     $dl.appendChild($dt);
     $dl.appendChild($dd);
 
-    if (!isShiftPressed)
-      $dti.focus();
+    $dti.focus();
 
     // remove the pair if both inputs are empty
-    $ddi.addEventListener('focusout', (f) => {
-      if (f.target.value === '' && f.target.parentNode.previousElementSibling.firstElementChild.value === '') {
-        f.target.parentNode.previousElementSibling.remove(); // dt
-        f.target.parentNode.remove(); // dd
+    $ddi.addEventListener('focusout', () => {
+      if ($dti.value === '' && $ddi.value === '') {
+        $dt.remove();
+        $dd.remove();
       }
     });
 
-    // attache event also to the second field
+    // attach event also to the second field
     $dti.addEventListener('focusout', () => {
       $ddi.dispatchEvent(new Event('focusout'));
     });
   }
 });
-
-document.getElementById('payment_details').innerHTML = payment_details;
 
 // Invoice Number
 document.getElementById('invoice_number').value = String(invoices[0].number);
@@ -102,20 +103,21 @@ document.getElementById('invoice_number').value = String(invoices[0].number);
 // Invoice Date
 const $date = document.getElementById('date');
 
-$date.addEventListener('mouseover', (e) => {
-  const stringValue = e.target.value;
+$date.addEventListener('mouseover', () => {
+  const stringValue = $date.value;
   $date.value = dateInputFormatter(stringValue);
   $date.type = 'date';
 });
-$date.addEventListener('mouseout', (e) => {
+$date.addEventListener('mouseout', () => {
   $date.type = 'text';
-  $date.value = dateFormatter(e.target.value);
+  $date.value = dateFormatter($date.value);
   $date.blur();
 });
 
 // Invoice Items
 let invoice_items = '',
   invoice_total = 0;
+const $invoice_items = document.getElementById('invoice_items');
 
 for (let value of Object.values(invoices[showing_invoice_pos].items)) {
   invoice_total += value.price;
@@ -128,7 +130,51 @@ for (let value of Object.values(invoices[showing_invoice_pos].items)) {
   </tr>`;
 }
 
-document.getElementById('invoice_items').innerHTML = invoice_items;
+$invoice_items.innerHTML = invoice_items;
+
+// Add a new object to the end of the items array, when tabbing out of the last input
+$invoice_items.addEventListener('focusout', (e) => {
+  const $tbody = e.currentTarget;
+
+  if (e.target.tagName === 'INPUT' && e.target === $tbody.lastElementChild.lastElementChild.lastElementChild && !isShiftPressed) {
+    const $tr = document.createElement('tr'),
+      $td1 = document.createElement('td'),
+      $td2 = document.createElement('td'),
+      $td3 = document.createElement('td'),
+      $td1i = document.createElement('input'),
+      $td2i = document.createElement('input'),
+      $td3i = document.createElement('input');
+
+    $td1.appendChild($td1i);
+    $td2.appendChild($td2i);
+    $td3.appendChild($td3i);
+
+    $tr.appendChild($td1);
+    $tr.appendChild($td2);
+    $tr.appendChild($td3);
+
+    $tbody.appendChild($tr);
+
+    $td1i.focus();
+
+    // remove the row if all inputs are empty
+    $td1i.addEventListener('focusout', () => {
+      if ($td3i.value === '' && $td2i.value === '' && $td3i.value === '') {
+        $tr.remove();
+      }
+    });
+
+    // attach event also to the second field
+    $td2i.addEventListener('focusout', () => {
+      $td1i.dispatchEvent(new Event('focusout'));
+    });
+
+    // attach event also to the third field
+    $td3i.addEventListener('focusout', () => {
+      $td1i.dispatchEvent(new Event('focusout'));
+    });
+  }
+});
 
 // Invoice Total
 document.getElementById('invoice_total').innerHTML = `${config.currency.symbol}${priceFormatter(invoice_total)}`;
