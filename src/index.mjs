@@ -54,6 +54,46 @@ for (let [key, value] of Object.entries(config.payment_details)) {
   payment_details += `<dt><input value="${key.replace('_', ' ')}"></dt><dd><input value="${value}"></dd>`;
 }
 
+let isShiftPressed = false;
+
+document.getElementById('payment_details').addEventListener('keydown', (e) => {
+  isShiftPressed = e.shiftKey;
+});
+
+// Add a new object to the end of the items array, when tabbing out of the last input
+document.getElementById('payment_details').addEventListener('focusout', (e) => {
+  const $dl = e.currentTarget;
+  // if the target is an input and it's the last input in the list
+  if (e.target.tagName === 'INPUT' && e.target === $dl.lastElementChild.lastElementChild) {
+    const $dt = document.createElement('dt'),
+      $dd = document.createElement('dd'),
+      $dti = document.createElement('input'),
+      $ddi = document.createElement('input');
+
+    $dt.appendChild($dti);
+    $dd.appendChild($ddi);
+
+    $dl.appendChild($dt);
+    $dl.appendChild($dd);
+
+    if (!isShiftPressed)
+      $dti.focus();
+
+    // remove the pair if both inputs are empty
+    $ddi.addEventListener('focusout', (f) => {
+      if (f.target.value === '' && f.target.parentNode.previousElementSibling.firstElementChild.value === '') {
+        f.target.parentNode.previousElementSibling.remove(); // dt
+        f.target.parentNode.remove(); // dd
+      }
+    });
+
+    // attache event also to the second field
+    $dti.addEventListener('focusout', () => {
+      $ddi.dispatchEvent(new Event('focusout'));
+    });
+  }
+});
+
 document.getElementById('payment_details').innerHTML = payment_details;
 
 // Invoice Number
