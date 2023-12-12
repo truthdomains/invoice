@@ -38,7 +38,7 @@ let showing_invoice_pos = invoices.length - 1;
 
 // Company Name || Company Logo
 if (config.company.logo) {
-  document.getElementById('company_name').innerHTML = `<img src="${config.company.logo}" />`;
+  document.getElementById('company_name').parentNode.innerHTML = `<img src="${config.company.logo}" alt="${config.company.name}" width="233" />`;
 } else {
   document.getElementById('company_name').innerHTML = String(config.company.name);
 }
