@@ -42,7 +42,7 @@ let showing_invoice_pos = invoices.length - 1;
 
 // Company Name || Company Logo
 if (config.company.logo) {
-  document.getElementById('company_name').parentNode.innerHTML = `<img src="${config.company.logo}" />`;
+  document.getElementById('company_name').parentNode.innerHTML = `<img src="${config.company.logo}" alt="${config.company.name}" />`;
 } else {
   document.getElementById('company_name').value = String(config.company.name);
 }
@@ -98,7 +98,7 @@ $payment_details.addEventListener('focusout', (e) => {
 });
 
 // Invoice Number
-document.getElementById('invoice_number').value = String(invoices[0].number);
+document.getElementById('invoice_number').innerHTML = String(invoices[showing_invoice_pos].number);
 
 // Invoice Date
 const $date = document.getElementById('date');
@@ -113,6 +113,9 @@ $date.addEventListener('mouseout', () => {
   $date.value = dateFormatter($date.value);
   $date.blur();
 });
+
+// Invoice Date
+$date.innerHTML = dateFormatter(invoices[showing_invoice_pos].date_created);
 
 // Invoice Items
 let invoice_items = '',
