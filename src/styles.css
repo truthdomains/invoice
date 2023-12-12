@@ -1,11 +1,12 @@
 :root {
 	--color-border: lightgray;
+	--font-family: 'Helvetica Neue', sans-serif;
 }
 
 body {
 	display: flex;
 	justify-content: space-around;
-	font-family: 'Helvetica Neue', sans-serif;
+	font-family: var(--font-family);
 	font-weight: 200;
 }
 
@@ -17,6 +18,14 @@ main {
 aside {
 	padding: 2em;
 	border-right: 1px solid var(--color-border);
+
+	input {
+		width: -webkit-fill-available;
+	}
+}
+
+header h1 input {
+	text-align: right;
 }
 
 article {
@@ -44,13 +53,24 @@ dd {
 }
 
 h2 {
-	margin-top: 10.5em;
+	margin: 10.5em 0 0 2px;
 }
 
 dt {
 	margin-top: 1em;
 	font-size: 90%;
 	text-transform: lowercase;
+}
+
+input {
+	appearance: none;
+	border: 1px solid transparent;
+	font: var(--font-family);
+
+	&:hover {
+		border: 1px solid var(--color-border);
+		border-radius: 0.25em;
+	}
 }
 
 #meta {
@@ -60,6 +80,23 @@ dt {
 }
 #date {
 	font-weight: bold;
+	text-align: right;
+
+	&::-webkit-inner-spin-button,
+	&::-webkit-calendar-picker-indicator {
+		display: none;
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	&:hover,
+	&:focus {
+		&::-webkit-inner-spin-button,
+		&::-webkit-calendar-picker-indicator {
+			display: initial;
+			-webkit-appearance: initial;
+		}
+	}
 }
 
 /* Table */
@@ -70,9 +107,35 @@ table {
 }
 th,
 td {
-	padding: 0.5em 0;
+	padding: .5em 0;
+
+	&:first-child {
+		width: 100%;
+	}
+
+	input {
+		width: -webkit-fill-available;
+	}
+
+	&:nth-child(2) input {
+		width: 2.5em;
+	}
+
 	&:last-child {
+		width: 6em;
 		text-align: right;
+
+		input {
+			width: 5em;
+			text-align: right;
+
+			&::-webkit-inner-spin-button,
+			&::-webkit-outer-spin-button {
+				display: none;
+				-webkit-appearance: none;
+				margin: 0;
+			}
+		}
 	}
 }
 thead {
@@ -123,5 +186,8 @@ tfoot tr {
 	#controls,
 	iframe {
 		display: none;
+	}
+	input {
+		outline: 0;
 	}
 }
