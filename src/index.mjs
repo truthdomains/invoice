@@ -53,10 +53,10 @@ for (let [key, value] of Object.entries(config.payment_details)) {
 document.getElementById('payment_details').innerHTML = payment_details;
 
 // Invoice Number
-document.getElementById('invoice_number').innerHTML = String(invoices[0].number);
+document.getElementById('invoice_number').innerHTML = String(invoices[showing_invoice_pos].number);
 
 // Invoice Date
-document.getElementById('date').innerHTML = dateFormatter(invoices[0].date_created);
+document.getElementById('date').innerHTML = dateFormatter(invoices[showing_invoice_pos].date_created);
 
 // Invoice Items
 let invoice_items = '',
