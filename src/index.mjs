@@ -98,7 +98,7 @@ $payment_details.addEventListener('focusout', (e) => {
 });
 
 // Invoice Number
-document.getElementById('invoice_number').innerHTML = String(invoices[showing_invoice_pos].number);
+document.getElementById('invoice_number').value = String(invoices[showing_invoice_pos].number);
 
 // Invoice Date
 const $date = document.getElementById('date');
@@ -115,7 +115,7 @@ $date.addEventListener('mouseout', () => {
 });
 
 // Invoice Date
-$date.innerHTML = dateFormatter(invoices[showing_invoice_pos].date_created);
+$date.value = dateFormatter(invoices[showing_invoice_pos].date_created);
 
 // Invoice Items
 let invoice_items = '',
