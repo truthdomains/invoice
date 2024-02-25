@@ -23,16 +23,16 @@
     "offline",
     "print-friendly"
   ],
+  "type": "module",
+  "module": "src/server.ts",
   "scripts": {
-    "dev": "bun --watch ./src/server.ts",
-    "start": "bun ./src/server.ts"
+    "dev": "bun --watch src/server.ts",
+    "start": "bun src/server.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "eslint": "^8.55.0"
   },
-  "module": "index.ts",
-  "type": "module",
   "peerDependencies": {
     "typescript": "^5.0.0"
   }
