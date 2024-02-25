@@ -1,5 +1,3 @@
-import './styles.css';
-
 import { dateFormatter, dateInputFormatter, priceFormatter } from './helpers.mjs';
 
 const config = {
