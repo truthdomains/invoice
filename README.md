@@ -14,8 +14,8 @@
 
 ## History
 
-Created with the "Vanilla" template from [CodeSandbox](https://codesandbox.io/p/github/truthdomains/invoice/main) (hence the use of Parcel).
+Created with the "Vanilla" template from [CodeSandbox](https://codesandbox.io/p/github/truthdomains/invoice/main).
 
 ## Resources
 
-- [Parcel](https://parceljs.org/)
+- [Bun](https://bun.sh/docs)
