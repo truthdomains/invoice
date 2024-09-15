@@ -1,33 +1,27 @@
 {
   "compilerOptions": {
-    "lib": ["DOM",
-      "DOM.Iterable",
-      "ESNext"],
+    // Enable latest features
+    "lib": [
+      "ESNext"
+    ],
     "target": "ESNext",
     "module": "ESNext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "allowJs": true,
-    "types": [
-      "bun-types"
-    ],
-
-    /* Bundler mode */
+    // Bundler mode
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
-
-    /* Linting */
-    "skipLibCheck": true,
+    // Best practices
     "strict": true,
+    "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "baseUrl": "./src/"
-  },
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+    "baseUrl": "./src/",
+    // Some stricter flags
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noPropertyAccessFromIndexSignature": true
+  }
 }

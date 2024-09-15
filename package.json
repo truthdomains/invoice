@@ -6,23 +6,8 @@
   "description": "A simple way to create a print-friendly invoice",
   "repository": "https://github.com/truthdomains/invoice",
   "author": "@TRUTHDOMAINS",
-  "contributors": [
-    "@mountainash"
-  ],
-  "keywords": [
-    "invoice",
-    "bill",
-    "accounting",
-    "business",
-    "freelance",
-    "contractor",
-    "bookkeeping",
-    "receipt",
-    "print",
-    "pdf",
-    "offline",
-    "print-friendly"
-  ],
+  "contributors": ["@mountainash"],
+  "keywords": ["invoice", "bill", "accounting", "business", "freelance", "contractor", "bookkeeping", "receipt", "print", "pdf", "offline", "print-friendly"],
   "type": "module",
   "module": "src/server.ts",
   "scripts": {

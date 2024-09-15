@@ -36,7 +36,7 @@ const invoices = [
   },
 ];
 
-let showing_invoice_pos = invoices.length - 1;
+const showing_invoice_pos = invoices.length - 1;
 
 // Company Name || Company Logo
 if (config.company.logo) {
@@ -56,7 +56,7 @@ document.addEventListener('keydown', (e) => {
 let payment_details = '';
 const $payment_details = document.getElementById('payment_details');
 
-for (let [key, value] of Object.entries(config.payment_details)) {
+for (const [key, value] of Object.entries(config.payment_details)) {
   payment_details += `<dt><input value="${key.replace('_', ' ')}"></dt><dd><input value="${value}"></dd>`;
 }
 
@@ -67,10 +67,10 @@ $payment_details.addEventListener('focusout', (e) => {
   const $dl = e.currentTarget;
   // if the target is an input and it's the last input in the list
   if (e.target.tagName === 'INPUT' && e.target === $dl.lastElementChild.lastElementChild && !isShiftPressed) {
-    const $dt = document.createElement('dt'),
-      $dd = document.createElement('dd'),
-      $dti = document.createElement('input'),
-      $ddi = document.createElement('input');
+    const $dt = document.createElement('dt');
+    const $dd = document.createElement('dd');
+    const $dti = document.createElement('input');
+    const $ddi = document.createElement('input');
 
     $dt.appendChild($dti);
     $dd.appendChild($ddi);
@@ -116,11 +116,11 @@ $date.addEventListener('mouseout', () => {
 $date.value = dateFormatter(invoices[showing_invoice_pos].date_created);
 
 // Invoice Items
-let invoice_items = '',
-  invoice_total = 0;
+let invoice_items = '';
+let invoice_total = 0;
 const $invoice_items = document.getElementById('invoice_items');
 
-for (let value of Object.values(invoices[showing_invoice_pos].items)) {
+for (const value of Object.values(invoices[showing_invoice_pos].items)) {
   invoice_total += value.price;
 
   invoice_items += `
@@ -138,13 +138,13 @@ $invoice_items.addEventListener('focusout', (e) => {
   const $tbody = e.currentTarget;
 
   if (e.target.tagName === 'INPUT' && e.target === $tbody.lastElementChild.lastElementChild.lastElementChild && !isShiftPressed) {
-    const $tr = document.createElement('tr'),
-      $td1 = document.createElement('td'),
-      $td2 = document.createElement('td'),
-      $td3 = document.createElement('td'),
-      $td1i = document.createElement('input'),
-      $td2i = document.createElement('input'),
-      $td3i = document.createElement('input');
+    const $tr = document.createElement('tr');
+    const $td1 = document.createElement('td');
+    const $td2 = document.createElement('td');
+    const $td3 = document.createElement('td');
+    const $td1i = document.createElement('input');
+    const $td2i = document.createElement('input');
+    const $td3i = document.createElement('input');
 
     $td1.appendChild($td1i);
     $td2.appendChild($td2i);
