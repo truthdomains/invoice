@@ -1,6 +1,6 @@
 {
   "name": "invoice",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "private": true,
   "description": "A simple way to create a print-friendly invoice",
@@ -16,11 +16,12 @@
     "start": "bun src/server.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.0",
+    "@biomejs/biome": "1.9.4",
     "@types/bun": "latest",
-    "typescript": "5.6.2"
+    "typescript": "5.7.2"
   },
+  "packageManager": "bun@1.1.38",
   "engines": {
-    "bun": ">=1.1.28"
+    "bun": ">=1.1.38"
   }
 }
