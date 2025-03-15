@@ -1,4 +1,4 @@
-import { dateFormatter, dateInputFormatter, priceFormatter } from './helpers.mjs';
+import { dateFormatter, dateInputFormatter, priceFormatter } from 'helpers.mjs';
 
 const config = {
   company: {

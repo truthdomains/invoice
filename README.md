@@ -10,7 +10,7 @@
 ## Development
 
 1. `bun install`
-1. `bun run start`
+1. `bun run dev`
 
 ## History
 
