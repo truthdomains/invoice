@@ -199,7 +199,7 @@ tfoot tr {
 	box-shadow: 0 5px 5px var(--color-border);
 	font-size: 80%;
 	color: var(--color-background);
-	opacity: .2;
+	opacity: 0.2;
 	transition: opacity .2s ease-in-out;
 
 	&:hover {
@@ -298,15 +298,15 @@ label::after {
 		padding: .5rem;
 		border-radius: 0;
 		font-size: 3rem;
-		font-family: "Open sans", Helvetica, Arial, sans-serif;
+		font-family: 'Open sans', Helvetica, Arial, sans-serif;
 		border-color: var(--color-secondary);
 		color: var(--color-secondary);
 	}
 	&.paid {
 		transform: rotate(-14deg);
-		border: .5rem solid #0A9928;
+		border: .5rem solid #0a9928;
 		border-radius: 0;
-		color: #0A9928;
+		color: #0a9928;
 	}
 	&.unpaid {
 		transform: rotate(3deg) scale(0.7);
