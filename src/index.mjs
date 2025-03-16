@@ -38,8 +38,8 @@ const invoices = [
 
 const showing_invoice_pos = invoices.length - 1;
 
-// Company Name || Company Logo
 if (config.company.logo) {
+  // Company Name || Company Logo
   document.getElementById('company_name').parentNode.innerHTML = `<img src="${config.company.logo}" alt="${config.company.name}" />`;
 } else {
   document.getElementById('company_name').value = String(config.company.name);
@@ -179,3 +179,14 @@ $invoice_items.addEventListener('focusout', (e) => {
 
 // Invoice Total
 document.getElementById('invoice_total').innerHTML = `${config.currency.symbol}${priceFormatter(invoice_total)}`;
+
+/* Status */
+const $input_status = document.getElementById('status');
+const $effect_status = document.getElementById('effect_status');
+
+$input_status.addEventListener('change', (event) => {
+  $effect_status.removeAttribute('class'); // reset animation
+  $effect_status.innerText = event.target.value;
+  $effect_status.offsetWidth; // see https://css-tricks.com/restart-css-animation/#aa-update-another-javascript-method-to-restart-a-css-animation
+  $effect_status.className = event.target.value;
+});

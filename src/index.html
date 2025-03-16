@@ -5,10 +5,12 @@
 	<title>TRUTH DOMAINS | Invoicing</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="prefetch" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/8399/grunge.png">
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+	<form action="#">
 	<main>
 		<aside>
 			<h1>Invoice</h1>
@@ -23,6 +25,14 @@
 				<h1><input id="company_name" value="TRUTH DOMAINS"></h1>
 				<div id="meta">
 					<p>Invoice Number: <input type="number" id="invoice_number" min="0" value="1" placeholder="1" required></p>
+					<label><strong>Status</strong>
+						<select id="status">
+							<option value="draft" selected>Draft</option>
+							<option value="sent">Sent</option>
+							<option value="paid">Paid</option>
+							<option value="unpaid">Lost</option>
+						</select>
+					</label>
 					<p><input id="date" value="10 December 2023"></p>
 				</div>
 			</header>
@@ -51,6 +61,9 @@
 				</table>
 			</section>
 		</article>
+		<div id="effects">
+			<div id="effect_status">Draft</div>
+		</div>
 	</main>
 
 	<div id="controls">
