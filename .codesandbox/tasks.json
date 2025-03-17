@@ -6,9 +6,9 @@
     }
   ],
   "tasks": {
-    "start": {
-      "name": "start",
-      "command": "bun start",
+    "dev": {
+      "name": "dev",
+      "command": "bun dev",
       "runAtStart": true,
       "preview": {
         "port": 3000

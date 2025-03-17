@@ -9,7 +9,7 @@
   "contributors": ["@mountainash"],
   "keywords": ["invoice", "bill", "accounting", "business", "freelance", "contractor", "bookkeeping", "receipt", "print", "pdf", "offline", "print-friendly"],
   "scripts": {
-    "dev": "bun src/index.html",
+    "dev": "bun server.ts",
     "lint": "biome lint"
   },
   "devDependencies": {
