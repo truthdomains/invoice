@@ -135,6 +135,9 @@ td {
 				-webkit-appearance: none;
 				margin: 0;
 			}
+			&[type="number"] {
+				-moz-appearance: textfield;
+			}
 		}
 	}
 }
@@ -200,5 +203,7 @@ tfoot tr {
 	}
 	input {
 		outline: 0;
+		appearance: none;
+		-moz-appearance: textfield;
 	}
 }
