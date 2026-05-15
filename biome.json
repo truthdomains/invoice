@@ -32,11 +32,19 @@
       "arrowParentheses": "always",
       "bracketSameLine": false,
       "bracketSpacing": true,
-      "quoteStyle": "single",
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
       "semicolons": "always",
       "trailingCommas": "all"
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "tab",
+      "lineEnding": "lf",
+      "quoteStyle": "single",
+      "lineWidth": 320
     }
   }
 }
